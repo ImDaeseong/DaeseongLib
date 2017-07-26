@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="App1.SearchView"
+             BackgroundColor="#33A7D6" >
+  <ContentView.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
+            <Entry x:Name="eSearch" Margin="2, 2, 2, 2" TextChanged="eSearch_TextChanged" Completed="eSearch_Completed" BackgroundColor="Transparent" FontSize="18" TextColor="White" Placeholder="검색할 주소를 입력하세요."/>
+            <StackLayout>
+                <Frame x:Name="frame1" IsVisible="True" CornerRadius="3" Padding="0" Margin="5,5,5,5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <ScrollView>
+                        <StackLayout x:Name="stackList" />
+                    </ScrollView>
+                </Frame>
+                <Frame x:Name="frame2" IsVisible="False" CornerRadius="3" Padding="0" Margin="2,2,2,2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <maps:Map x:Name="map" IsShowingUser="true" MapType="Street" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage"
+              BackgroundColor="White">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+    
+    <ContentPage.Content>
+
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+
+            <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="ChangeContent" Grid.Column="0" Grid.Row="0">
+                <local:AllListView/>
+            </ContentView>
+
+            <BoxView Grid.Column="0" Grid.Row="1" HeightRequest="0.1" Color="#33A7D6" />
+
+            <Grid Grid.Column="0" Grid.Row="2" RowSpacing="0" ColumnSpacing="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackLayout x:Name="localSearch"  Orientation="Vertical" VerticalOptions="End" Grid.Column="0" Grid.Row="0" >
+                    <Image Source="search.png" />
+                    <Label x:Name="tab1" Text="전체내용 보기" TextColor="#5A297D" FontSize="11" HorizontalTextAlignment="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_localSearch" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <StackLayout x:Name="PageSearch"  Orientation="Vertical" VerticalOptions="End" Grid.Column="1" Grid.Row="0" >
+                    <Image Source="search.png" />
+                    <Label x:Name="tab2" Text="부분 검색" TextColor="#5A297D" FontSize="11" HorizontalTextAlignment="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_PageSearch" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+                <StackLayout x:Name="FullSearch" Orientation="Vertical" VerticalOptions="End" Grid.Column="2" Grid.Row="0">
+                    <Image Source="search.png" />
+                    <Label x:Name="tab3" Text="전체검색" TextColor="#5A297D" FontSize="11" HorizontalTextAlignment="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_FullSearch"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <StackLayout x:Name="SiteView" Orientation="Vertical" VerticalOptions="End" Grid.Column="3" Grid.Row="0">
+                    <Image Source="search.png" />
+                    <Label x:Name="tab4" Text="커뮤니티" TextColor="#5A297D" FontSize="11" HorizontalTextAlignment="Center" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_SiteView" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+            </Grid>
+
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:App1"
+             x:Class="App1.PartListView"
+             BackgroundColor="#33A7D6">
+    <ContentView.Content>
+        <StackLayout Margin="5,5,5,5">
+            <ListView x:Name="MapListview" HasUnevenRows="true" SeparatorVisibility="Default" ItemsSource="{Binding MapAllList}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                <controls:MultiLineLabel Lines="1" LineBreakMode="TailTruncation" Margin="5,5,5,5" Text="{Binding DisplayName}" TextColor="White" FontSize="15" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <controls:RoundCornersButton Clicked="PreMap_Clicked" Text="이전" BorderColor ="White" BackgroundColor="#33A7D6" TextColor="White" x:Name="PreMap" WidthRequest="60" HeightRequest="40" HorizontalOptions="StartAndExpand"/>
+                <Image Source="bannerImg" x:Name="bannerImg" HorizontalOptions="Start" WidthRequest="100" HeightRequest="40" IsVisible="False"/>
+                <controls:RoundCornersButton Clicked="nexMap_Clicked" Text="다음" BorderColor ="White" BackgroundColor="#33A7D6" TextColor="White" x:Name="nexMap" WidthRequest="60" HeightRequest="40" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Margin="0" Spacing="0" VerticalOptions="Center">
+                <ActivityIndicator x:Name="actIndicator" HeightRequest="15" WidthRequest="15" HorizontalOptions="Fill" Color="White" IsRunning="False" IsVisible="False"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

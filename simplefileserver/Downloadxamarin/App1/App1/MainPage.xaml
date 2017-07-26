@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage">
+
+    <StackLayout Margin="15">
+        <Button x:Name="btnDownloadText" Text="DownloadText" Clicked="btnDownloadText_Clicked"></Button>
+        <Button x:Name="btnDownloadFile" Text="DownloadFile" Clicked="btnDownloadFile_Clicked" ></Button>
+        <Button x:Name="btnDownloadProgressFile" Text="DownloadProgressFile" Clicked="btnDownloadProgressFile_Clicked" ></Button>
+        <Label x:Name="lblDownloadInfo" Text=""	VerticalOptions="Center" HorizontalOptions="Center" />
+        <ProgressBar x:Name="pbProgressBar"/>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.SearchItemView"
+             BackgroundColor="#33A7D6">
+  <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackLayout Orientation="Horizontal" Padding="0" Margin="2,2,2,2">
+                    <Label x:Name="lblName" TextColor="White" IsVisible="True"/>
+                    <Label x:Name="lblLat" IsVisible="False"/>
+                    <Label x:Name="lblLng" IsVisible="False"/>
+                    <Label x:Name="lblplace_id" IsVisible="False"/>
+                    <Label x:Name="lblAddress" IsVisible="False"/>
+                    <Label x:Name="lblphonenumber" IsVisible="False"/>
+                    <Label x:Name="lblUrl" IsVisible="False"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

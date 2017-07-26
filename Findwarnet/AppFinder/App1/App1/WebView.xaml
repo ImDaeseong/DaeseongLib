@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.WebView"
+             BackgroundColor= "Transparent">
+  <ContentView.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
+            <Frame x:Name="frame1" CornerRadius="3" Padding="0" Margin="5,5,5,5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor= "#33A7D6">
+                <Label x:Name="labelLoading" Text="커뮤니티를 읽고 있는중입니다." IsVisible="True" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            </Frame>
+            <Frame x:Name="frame2" CornerRadius="3" Padding="0" Margin="5,5,5,5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor= "White">
+                <WebView x:Name="WebVeiw" Navigated="WebVeiw_Navigated" Navigating="WebVeiw_Navigating" />
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
