@@ -19,25 +19,32 @@ namespace WindowsFormsApplication1
 
         private async void getbithumbTicker(string url)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var resp = await client.GetStringAsync(url);
-                var result = JsonConvert.DeserializeObject<Response>(resp);
-                //Console.WriteLine(result.Status);
+                using (var client = new HttpClient())
+                {
+                    var resp = await client.GetStringAsync(url);
+                    var result = JsonConvert.DeserializeObject<Response>(resp);
+                    //Console.WriteLine(result.Status);
 
-                if (result.Status != "0000") return;
+                    if (result.Status != "0000") return;
 
-                Console.WriteLine(result.Data.Opening_price);
-                Console.WriteLine(result.Data.Closing_price);
-                Console.WriteLine(result.Data.Min_price);
-                Console.WriteLine(result.Data.Max_price);
-                Console.WriteLine(result.Data.Average_price);
-                Console.WriteLine(result.Data.Units_traded);
-                Console.WriteLine(result.Data.Volume_1day);
-                Console.WriteLine(result.Data.Volume_7day);
-                Console.WriteLine(result.Data.Buy_price);
-                Console.WriteLine(result.Data.Sell_price);
-                Console.WriteLine(result.Data.Date);
+                    Console.WriteLine(result.Data.Opening_price);
+                    Console.WriteLine(result.Data.Closing_price);
+                    Console.WriteLine(result.Data.Min_price);
+                    Console.WriteLine(result.Data.Max_price);
+                    Console.WriteLine(result.Data.Average_price);
+                    Console.WriteLine(result.Data.Units_traded);
+                    Console.WriteLine(result.Data.Volume_1day);
+                    Console.WriteLine(result.Data.Volume_7day);
+                    Console.WriteLine(result.Data.Buy_price);
+                    Console.WriteLine(result.Data.Sell_price);
+                    Console.WriteLine(result.Data.Date);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
             }
         }
 
@@ -50,29 +57,36 @@ namespace WindowsFormsApplication1
 
         private async void getbithumborderbook(string url)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var resp = await client.GetStringAsync(url);
-                var result = JsonConvert.DeserializeObject<Response1>(resp);
-                //Console.WriteLine(result.Status);
-
-                if (result.Status != "0000") return;
-
-                Console.WriteLine(result.Data.Timestamp);
-                Console.WriteLine(result.Data.Order_currency);
-                Console.WriteLine(result.Data.Payment_currency);
-
-                foreach (var val in result.Data.Bids)
+                using (var client = new HttpClient())
                 {
-                    Console.WriteLine(val.Quantity);
-                    Console.WriteLine(val.Price);
-                }
+                    var resp = await client.GetStringAsync(url);
+                    var result = JsonConvert.DeserializeObject<Response1>(resp);
+                    //Console.WriteLine(result.Status);
 
-                foreach (var val in result.Data.Asks)
-                {
-                    Console.WriteLine(val.Quantity);
-                    Console.WriteLine(val.Price);
+                    if (result.Status != "0000") return;
+
+                    Console.WriteLine(result.Data.Timestamp);
+                    Console.WriteLine(result.Data.Order_currency);
+                    Console.WriteLine(result.Data.Payment_currency);
+
+                    foreach (var val in result.Data.Bids)
+                    {
+                        Console.WriteLine(val.Quantity);
+                        Console.WriteLine(val.Price);
+                    }
+
+                    foreach (var val in result.Data.Asks)
+                    {
+                        Console.WriteLine(val.Quantity);
+                        Console.WriteLine(val.Price);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
             }
         }
 
@@ -84,22 +98,29 @@ namespace WindowsFormsApplication1
 
         private async void getbithumbrecent_transactions(string url)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var resp = await client.GetStringAsync(url);
-                var result = JsonConvert.DeserializeObject<Response2>(resp);
-                //Console.WriteLine(result.Status);
-
-                if (result.Status != "0000") return;
-
-                foreach (var val in result.Data)
+                using (var client = new HttpClient())
                 {
-                    Console.WriteLine(val.Transaction_date);
-                    Console.WriteLine(val.Type);
-                    Console.WriteLine(val.Units_traded);
-                    Console.WriteLine(val.Price);
-                    Console.WriteLine(val.Total);
+                    var resp = await client.GetStringAsync(url);
+                    var result = JsonConvert.DeserializeObject<Response2>(resp);
+                    //Console.WriteLine(result.Status);
+
+                    if (result.Status != "0000") return;
+
+                    foreach (var val in result.Data)
+                    {
+                        Console.WriteLine(val.Transaction_date);
+                        Console.WriteLine(val.Type);
+                        Console.WriteLine(val.Units_traded);
+                        Console.WriteLine(val.Price);
+                        Console.WriteLine(val.Total);
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
             }
         }
 
