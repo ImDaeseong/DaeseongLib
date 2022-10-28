@@ -86,7 +86,11 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tMapsTimer.Stop();
+            if(tMapsTimer != null)
+            {
+                tMapsTimer.Stop();
+            }
+            
             Close();
         }
 
@@ -112,20 +116,27 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int rowCount = 0;
-            wr = new StreamWriter("GooglePlacesInfo.txt", true);
-            string sQuery = string.Format("SELECT * FROM tbPlaceId");
-            SQLiteDataReader r = DBConn.GetSelectQuery(sQuery);
-            while (r.Read())
+            try
             {
-                rowCount++;
-                string place_id = string.Format("{0}", r["place_id"].ToString());
-                WriteString(place_id);
-            }
-            wr.Close();
+                int rowCount = 0;
+                wr = new StreamWriter("GooglePlacesInfo.txt", true);
+                string sQuery = string.Format("SELECT * FROM tbPlaceId");
+                SQLiteDataReader r = DBConn.GetSelectQuery(sQuery);
+                while (r.Read())
+                {
+                    rowCount++;
+                    string place_id = string.Format("{0}", r["place_id"].ToString());
+                    WriteString(place_id);
+                }
+                wr.Close();
 
-            string sMeg = string.Format("{0} 개 생성", rowCount.ToString());
-            SetLogText(sMeg);
+                string sMeg = string.Format("{0} 개 생성", rowCount.ToString());
+                SetLogText(sMeg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+            }
         }
     }
 }

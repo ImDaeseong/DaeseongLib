@@ -83,7 +83,11 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tMapsTimer.Stop();
+            if(tMapsTimer != null)
+            {
+                tMapsTimer.Stop();
+            }
+            
             Close();
         }
 

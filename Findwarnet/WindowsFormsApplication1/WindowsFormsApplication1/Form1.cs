@@ -27,6 +27,9 @@ namespace WindowsFormsApplication1
                 Console.WriteLine("not connected");                
             }
 
+            //테이블 생성
+            //DBConn.createTableGooglePlaces();
+
             LoadData();
         }
 
