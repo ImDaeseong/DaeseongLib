@@ -167,7 +167,7 @@ func GetUrlString(nType int) string {
 
 	dataCd := "ASOS"
 	dateCd := "HR"
-	startDt := SetDay(-1) // SetMonth(-1)  // 한달전
+	startDt := SetDay(-1) //하루전   // SetMonth(-1) 한달전
 	startHh := "01"
 	endDt := SetDay(-1) // 하루전
 	endHh := "01"
